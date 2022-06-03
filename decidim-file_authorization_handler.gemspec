@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  DECIDIM_VERSION = "~>" + Decidim::FileAuthorizationHandler::VERSION
+  DECIDIM_VERSION = "~>" + Decidim::FileAuthorizationHandler::DECIDIM_VERSION
 
   s.add_dependency "decidim", DECIDIM_VERSION
   s.add_dependency "decidim-admin", DECIDIM_VERSION
