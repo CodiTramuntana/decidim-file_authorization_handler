@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-file_authorization_handler (0.25.2)
+    decidim-file_authorization_handler (0.25.2.2)
       decidim (~> 0.25.2)
       decidim-admin (~> 0.25.2)
       rails (>= 5.2)
@@ -759,7 +759,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  decidim
+  decidim (~> 0.25.2)
   decidim-dev (~> 0.25.2)
   decidim-file_authorization_handler!
   faker
