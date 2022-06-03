@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-file_authorization_handler (0.1.0)
+    decidim-file_authorization_handler (0.25.2)
       decidim (~> 0.25.2)
       decidim-admin (~> 0.25.2)
       rails (>= 5.2)
@@ -767,4 +767,4 @@ DEPENDENCIES
   listen
 
 BUNDLED WITH
-   2.3.4
+   2.3.6
