@@ -4,7 +4,9 @@ require "spec_helper"
 RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum, type: :model do
   let(:organization) { FactoryBot.create :organization }
 
+  # rubocop: disable Lint/ConstantDefinitionInBlock
   CensusDatum = Decidim::FileAuthorizationHandler::CensusDatum
+  # rubocop: enable Lint/ConstantDefinitionInBlock
 
   describe "get census for a given identity document" do
     it "returns the last inserted when duplicates" do
@@ -19,17 +21,23 @@ RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum, type: :model do
     end
   end
 
-  context "insert_all" do
+  context "with #insert_all" do
     it "inserts a collection of values" do
+      # rubocop: disable Rails/SkipsModelValidations
       CensusDatum.insert_all(organization, [["1111A", "1990/12/1"], ["2222B", "1990/12/2"]])
+      # rubocop: enable Rails/SkipsModelValidations
       expect(CensusDatum.count).to be 2
+      # rubocop: disable Rails/SkipsModelValidations
       CensusDatum.insert_all(organization, [["1111A", "2001/12/1"], ["3333C", "1990/12/3"]])
+      # rubocop: enable Rails/SkipsModelValidations
       expect(CensusDatum.count).to be 4
     end
 
     context "when values is empty" do
       it "returns without crashing" do
+        # rubocop: disable Rails/SkipsModelValidations
         CensusDatum.insert_all(organization, [])
+        # rubocop: enable Rails/SkipsModelValidations
       end
     end
   end

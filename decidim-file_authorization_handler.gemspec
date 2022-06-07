@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path("../lib", __FILE__)
+$LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
 require "decidim/file_authorization_handler/version"
@@ -19,7 +19,11 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  DECIDIM_VERSION = "~>" + Decidim::FileAuthorizationHandler::DECIDIM_VERSION
+  s.required_ruby_version = ">= 2.7.5"
+
+  # rubocop: disable Lint/ConstantDefinitionInBlock
+  DECIDIM_VERSION = "~> #{Decidim::FileAuthorizationHandler::DECIDIM_VERSION}"
+  # rubocop: enable Lint/ConstantDefinitionInBlock
 
   s.add_dependency "decidim", DECIDIM_VERSION
   s.add_dependency "decidim-admin", DECIDIM_VERSION

@@ -18,3 +18,7 @@ group :development, :test do
   gem "letter_opener_web"
   gem "listen"
 end
+
+group :development do
+  gem "rubocop", "~> 0.92.0"
+end

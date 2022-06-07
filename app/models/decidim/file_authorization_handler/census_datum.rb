@@ -3,11 +3,8 @@
 module Decidim
   module FileAuthorizationHandler
     class CensusDatum < ApplicationRecord
-      # rubocop:disable Rails/InverseOf
       belongs_to :organization, foreign_key: :decidim_organization_id,
                                 class_name: "Decidim::Organization"
-      # rubocop:enable Rails/InverseOf
-
       # An organzation scope
       def self.inside(organization)
         where(decidim_organization_id: organization.id)
@@ -25,8 +22,10 @@ module Decidim
       # to conform with Decidim privacy guidelines.
       def self.normalize_and_encode_id_document(id_document)
         return "" unless id_document
+
         id_document = id_document.gsub(/[^A-z0-9]/, "").upcase
         return "" if id_document.blank?
+
         Digest::SHA256.hexdigest(
           "#{id_document}-#{Rails.application.secrets.secret_key_base}"
         )

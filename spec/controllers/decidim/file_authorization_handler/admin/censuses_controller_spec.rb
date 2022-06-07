@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -48,7 +47,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
     it "clear all census data" do
       sign_in user
 
-      5.times { FactoryBot.create :census_datum, organization: organization }
+      FactoryBot.create_list :census_datum, 5, organization: organization
       delete :destroy
       expect(response).to have_http_status(:redirect)
 
