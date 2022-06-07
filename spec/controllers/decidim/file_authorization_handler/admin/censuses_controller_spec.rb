@@ -12,7 +12,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
   end
 
   let(:user) do
-    FactoryBot.create :user, :confirmed, organization: organization, admin: true
+    FactoryBot.create :user, :admin, :confirmed, organization: organization, admin: true
   end
 
   before do
@@ -21,8 +21,9 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
 
   describe "GET #show" do
     it "returns http success" do
-      sign_in user
+      sign_in user, scope: :user
       get :show
+
       expect(response).to have_http_status(:success)
     end
   end
@@ -46,7 +47,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
     it "clear all census data" do
       sign_in user
 
-      5.times { FactoryBot.create :census_datum, organization: organization }
+      FactoryBot.create_list :census_datum, 5, organization: organization
       delete :destroy
       expect(response).to have_http_status(:redirect)
 

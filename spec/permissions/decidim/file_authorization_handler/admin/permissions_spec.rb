@@ -10,7 +10,7 @@ describe Decidim::FileAuthorizationHandler::Admin::Permissions do
   let(:user) { create :user, organization: organization }
   let(:context) do
     {
-      current_component: dummy_component
+      current_component: dummy_component,
     }
   end
   let(:scope) { :admin }

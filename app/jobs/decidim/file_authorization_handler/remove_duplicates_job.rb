@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 module Decidim
@@ -11,7 +10,7 @@ module Decidim
           CensusDatum.inside(organization)
                      .where(id_document: id_document)
                      .order(id: :desc)
-                     .all[1..-1]
+                     .all[1..]
                      .each(&:delete)
         end
       end

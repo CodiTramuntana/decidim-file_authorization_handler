@@ -13,7 +13,9 @@ module Decidim
           enforce_permission_to :create, :authorization
           if params[:file]
             data = CsvData.new(params[:file].path)
+            # rubocop: disable Rails/SkipsModelValidations
             CensusDatum.insert_all(current_organization, data.values)
+            # rubocop: enable Rails/SkipsModelValidations
             RemoveDuplicatesJob.perform_later(current_organization)
             flash[:notice] = t(".success", count: data.values.count,
                                            errors: data.errors.count)

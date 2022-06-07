@@ -1,3 +1,4 @@
 tmp/
 spec/decidim_dummy_app/
 .rspec-failures
+.byebug_history

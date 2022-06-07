@@ -9,8 +9,6 @@ RSpec.describe Decidim::FileAuthorizationHandler::RemoveDuplicatesJob do
   it "remove duplicates in the database" do
     %w(AAA BBB AAA AAA).each do |doc|
       FactoryBot.create(:census_datum, id_document: doc, organization: org1)
-    end
-    %w(AAA BBB AAA AAA).each do |doc|
       FactoryBot.create(:census_datum, id_document: doc, organization: org2)
     end
     expect(Decidim::FileAuthorizationHandler::CensusDatum.count).to be 8

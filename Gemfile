@@ -14,7 +14,11 @@ gemspec
 
 group :development, :test do
   gem "bootsnap", require: false
-  gem "decidim", require: true
+  gem "decidim", "~> 0.25.2", require: true
   gem "letter_opener_web"
   gem "listen"
+end
+
+group :development do
+  gem "rubocop", "~> 0.92.0"
 end

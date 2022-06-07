@@ -7,10 +7,11 @@ module Decidim
       class Permissions < Decidim::DefaultPermissions
         def permissions
           return permission_action if permission_action.scope != :admin
-          if user.organization.available_authorizations.include?("file_authorization_handler")
-            if permission_action_in?(:show, :create, :destroy)
-              allow! if permission_action.subject == Decidim::FileAuthorizationHandler::CensusDatum
-            end
+
+          if user.organization.available_authorizations.include?("file_authorization_handler") &&
+             permission_action_in?(:show, :create, :destroy) &&
+             permission_action.subject == Decidim::FileAuthorizationHandler::CensusDatum
+            allow!
           end
           permission_action
         end
