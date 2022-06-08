@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.7.5"
 
   # rubocop: disable Lint/ConstantDefinitionInBlock
-  DECIDIM_VERSION = "~> #{Decidim::FileAuthorizationHandler::DECIDIM_VERSION}"
+  DECIDIM_VERSION = ">= #{Decidim::FileAuthorizationHandler::DECIDIM_VERSION}"
   # rubocop: enable Lint/ConstantDefinitionInBlock
 
   s.add_dependency "decidim", DECIDIM_VERSION
