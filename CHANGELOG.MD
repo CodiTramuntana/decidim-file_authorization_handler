@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.26.1
+ - Upgrade to Decidim 0.26.1
+
 ## v0.25.2.2
 - Make test succeed
 - Update Gemfile.lock with current module version
