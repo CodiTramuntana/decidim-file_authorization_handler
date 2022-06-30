@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.26.1
+## v0.26.1.3
  - Upgrade to Decidim 0.26.1
 
 ## v0.25.2.2
