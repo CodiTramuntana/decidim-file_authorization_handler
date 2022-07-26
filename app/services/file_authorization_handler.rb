@@ -20,7 +20,7 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
   # This is required in new 0.8.4 version of decicim
   # however, there's a bug and this doesn't work
   def handler_name
-    "file_authorization_handler"
+    +"file_authorization_handler"
   end
 
   # Checks if the id_document belongs to the census

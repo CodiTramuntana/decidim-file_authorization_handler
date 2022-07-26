@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.26.2.4
+ - Fix frozen string literal error with handler name.
+
 ## v0.26.2.3
  - Upgrade to Decidim 0.26.2
 
