@@ -39,13 +39,24 @@ module Decidim
       end
 
       # Insert a collection of values
-      def self.insert_all(organization, values)
+      def self.insert_all(organization, values, extra_headers = nil)
         return if values.empty?
 
         table_name = CensusDatum.table_name
         columns = %w(id_document birthdate decidim_organization_id created_at).join(",")
+        columns = "#{columns},extras" if extra_headers.present?
         now = Time.current
-        values = values.map { |row| "('#{row[0]}', '#{row[1]}', '#{organization.id}', '#{now}')" }
+        values = values.map do |row|
+          vals = "('#{row[0]}', '#{row[1]}', '#{organization.id}', '#{now}'"
+          if extra_headers.present?
+            extras = {}
+            extra_headers.present? && extra_headers.each_with_index do |header, idx|
+              extras[header] = row[2 + idx]
+            end
+            vals += ", '#{extras.to_json}'"
+          end
+          "#{vals})"
+        end
         sql = "INSERT INTO #{table_name} (#{columns}) VALUES #{values.join(",")}"
         ActiveRecord::Base.connection.execute(sql)
       end

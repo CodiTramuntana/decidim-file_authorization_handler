@@ -14,7 +14,13 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
   validate :censed
 
   def metadata
-    { birthdate: census_for_user&.birthdate&.strftime("%Y/%m/%d") }
+    @metadata ||= begin
+      meta = { birthdate: census_for_user&.birthdate&.strftime("%Y/%m/%d") }
+      census_for_user.extras.each_pair do |key, value|
+        meta[key.to_sym] = value
+      end
+      meta
+    end
   end
 
   # This is required in new 0.8.4 version of decicim

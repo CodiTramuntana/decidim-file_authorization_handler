@@ -25,9 +25,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum, type: :model do
     it "inserts a collection of values" do
       # rubocop: disable Rails/SkipsModelValidations
       CensusDatum.insert_all(organization, [["1111A", "1990/12/1"], ["2222B", "1990/12/2"]])
-      # rubocop: enable Rails/SkipsModelValidations
       expect(CensusDatum.count).to be 2
-      # rubocop: disable Rails/SkipsModelValidations
       CensusDatum.insert_all(organization, [["1111A", "2001/12/1"], ["3333C", "1990/12/3"]])
       # rubocop: enable Rails/SkipsModelValidations
       expect(CensusDatum.count).to be 4
@@ -38,6 +36,22 @@ RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum, type: :model do
         # rubocop: disable Rails/SkipsModelValidations
         CensusDatum.insert_all(organization, [])
         # rubocop: enable Rails/SkipsModelValidations
+      end
+    end
+
+    context "when extra columns exist" do
+      it "inserts extra columns in the #extras column" do
+        # rubocop: disable Rails/SkipsModelValidations
+        CensusDatum.insert_all(organization, [
+                                 ["1111A", "2001/12/1", "001", "1234"],
+                                 ["3333C", "1990/12/3", "ABCD", "01-12/33"],
+                               ], %w(postal_code district))
+        # rubocop: enable Rails/SkipsModelValidations
+
+        inserts = CensusDatum.all
+        expect(inserts.size).to be 2
+        expect(inserts.first.extras).to eq({ "postal_code" => "001", "district" => "1234" })
+        expect(inserts.last.extras).to eq({ "postal_code" => "ABCD", "district" => "01-12/33" })
       end
     end
   end

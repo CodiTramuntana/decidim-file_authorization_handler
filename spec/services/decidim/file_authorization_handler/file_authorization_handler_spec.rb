@@ -45,4 +45,24 @@ RSpec.describe FileAuthorizationHandler do
                                               birthdate: date)
     expect(contextless_handler.valid?).to be true
   end
+
+  context "with extras in CensusDatum" do
+    let(:date) { Date.strptime("2000/01/01", "%Y/%m/%d") }
+    let(:census_datum) do
+      FactoryBot.create(:census_datum, :with_extras, id_document: encoded_dni,
+                                                     birthdate: date,
+                                                     organization: organization)
+    end
+
+    it "adds extras as metadata" do
+      census_datum
+      expect(handler.valid?).to be true
+      expect(handler.metadata).to eq({
+                                       birthdate: "2000/01/01",
+                                       district: census_datum.extras["district"],
+                                       postal_code: census_datum.extras["postal_code"],
+                                       segment_1: census_datum.extras["segment_1"],
+                                     })
+    end
+  end
 end

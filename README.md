@@ -24,7 +24,7 @@ background is kept out of the scope for the first release.
 
 ### CSV file format
 
-The CSV file format is not configurable. The plugin expects a comma separated
+The CSV file format is not configurable, but is extendable. The plugin expects a comma separated
 CSV with headers:
 
 ```console
@@ -42,6 +42,27 @@ initializer:
 # config/initializers/file_authorization_handler.rb
 Decidim::FileAuthorizationHandler::CsvData.col_sep= ";"
 ```
+
+#### Extra columns
+
+Sometimes extra fields must be provided in order for Authorizers to do some census segmentation. This, for example,
+happens when a specific authorizer checks for the district of the citizen.
+
+Since v0.26.2.5 this module supports a variable number of extra columns for each user. These columns are then persisted
+in the `CensusDatum#extras` column as a hash of fields.
+
+Take, for example, the following CSV file
+
+```console
+ID_NUMBER,BIRTH_DATE,DISTRICT
+00000000Z,07/03/2014,17600
+```
+
+it will be imported into the `CensusDatum` as `{"district" => "17600"}`.
+
+Then, once the user is verified, all `CensusDaum#extras` will be added to the `Authorization#metadata` toghether with the `birthdate`. This way, custom authorizers will be able to make use of this information.
+
+Implementors and administrators must respect User Privacy and be aware of the corresponding Rules.
 
 ### Overriding Authorization Handler name
 

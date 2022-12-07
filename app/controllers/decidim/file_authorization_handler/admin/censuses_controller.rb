@@ -14,7 +14,7 @@ module Decidim
           if params[:file]
             data = CsvData.new(params[:file].path)
             # rubocop: disable Rails/SkipsModelValidations
-            CensusDatum.insert_all(current_organization, data.values)
+            CensusDatum.insert_all(current_organization, data.values, data.headers[2..])
             # rubocop: enable Rails/SkipsModelValidations
             RemoveDuplicatesJob.perform_later(current_organization)
             flash[:notice] = t(".success", count: data.values.count,
