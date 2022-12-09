@@ -51,7 +51,7 @@ module Decidim
           if extra_headers.present?
             extras = {}
             extra_headers.present? && extra_headers.each_with_index do |header, idx|
-              extras[header] = row[2 + idx]
+              extras[header.downcase] = row[2 + idx]
             end
             vals += ", '#{extras.to_json}'"
           end

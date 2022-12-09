@@ -45,7 +45,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum, type: :model do
         CensusDatum.insert_all(organization, [
                                  ["1111A", "2001/12/1", "001", "1234"],
                                  ["3333C", "1990/12/3", "ABCD", "01-12/33"],
-                               ], %w(postal_code district))
+                               ], %w(POSTAL_CODE DISTRICT))
         # rubocop: enable Rails/SkipsModelValidations
 
         inserts = CensusDatum.all
