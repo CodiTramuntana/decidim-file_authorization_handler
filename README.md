@@ -60,7 +60,7 @@ ID_NUMBER,BIRTH_DATE,DISTRICT
 
 it will be imported into the `CensusDatum` as `{"district" => "17600"}`.
 
-Then, once the user is verified, all `CensusDaum#extras` will be added to the `Authorization#metadata` toghether with the `birthdate`. This way, custom authorizers will be able to make use of this information.
+Then, once the user is verified, all `CensusDaum#extras` will be added to the `Authorization#metadata` together with the `birthdate`. This way, custom authorizers will be able to make use of this information.
 
 Implementors and administrators must respect User Privacy and be aware of the corresponding Rules.
 
