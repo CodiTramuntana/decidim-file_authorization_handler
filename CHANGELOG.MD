@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.27.1.0
+ - Upgrade to use Ruby 3.1.3, but be compatible with > 3.0
+ - Upgrade to Decidim v0.27.1
+
 ## v0.26.2.5
  - FEATURE: Allow extra random columns in CSV and persist them in an `extras` column of type `jsonb` but as an array.
  - Upgrade to use Ruby 2.7.7, but be still compatible with 2.7.5
