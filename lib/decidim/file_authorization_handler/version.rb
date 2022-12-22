@@ -7,6 +7,6 @@ module Decidim
     # Uses the latest matching Decidim version for
     # - major, minor and patch
     # - the optional extra number is related to this module's patches
-    VERSION = "#{DECIDIM_VERSION}.5"
+    VERSION = "#{DECIDIM_VERSION}.0".freeze
   end
 end

@@ -7,7 +7,7 @@ describe Decidim::FileAuthorizationHandler::Admin::Permissions do
 
   let(:dummy_component) { create :dummy_component }
   let(:organization) { dummy_component.organization }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:context) do
     {
       current_component: dummy_component,
@@ -16,7 +16,7 @@ describe Decidim::FileAuthorizationHandler::Admin::Permissions do
   let(:scope) { :admin }
   let(:auth_subject) { Decidim::FileAuthorizationHandler::CensusDatum }
   let(:action) do
-    { scope: scope, action: action_name, subject: auth_subject }
+    { scope:, action: action_name, subject: auth_subject }
   end
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
@@ -29,7 +29,7 @@ describe Decidim::FileAuthorizationHandler::Admin::Permissions do
       let(:action_name) { action_name }
 
       context "##{action_name}" do
-        it { is_expected.to eq true }
+        it { is_expected.to be true }
       end
     end
   end

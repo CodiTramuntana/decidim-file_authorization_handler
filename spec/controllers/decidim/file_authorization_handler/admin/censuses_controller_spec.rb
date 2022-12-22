@@ -7,12 +7,12 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
   routes { Decidim::FileAuthorizationHandler::AdminEngine.routes }
 
   let(:organization) do
-    FactoryBot.create :organization,
-                      available_authorizations: ["file_authorization_handler"]
+    create :organization,
+           available_authorizations: ["file_authorization_handler"]
   end
 
   let(:user) do
-    FactoryBot.create :user, :admin, :confirmed, organization: organization, admin: true
+    create :user, :admin, :confirmed, organization:, admin: true
   end
 
   before do
@@ -34,7 +34,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
 
       # Don't know why don't prepend with `spec/fixtures` automatically
       file = fixture_file_upload("spec/fixtures/files/data1.csv")
-      post :create, params: { file: file }
+      post :create, params: { file: }
       expect(response).to have_http_status(:redirect)
 
       expect(Decidim::FileAuthorizationHandler::CensusDatum.count).to be 3
@@ -47,7 +47,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
     it "clear all census data" do
       sign_in user
 
-      FactoryBot.create_list :census_datum, 5, organization: organization
+      create_list :census_datum, 5, organization: organization
       delete :destroy
       expect(response).to have_http_status(:redirect)
 
