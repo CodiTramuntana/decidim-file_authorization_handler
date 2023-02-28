@@ -11,6 +11,9 @@ RSpec.describe FileAuthorizationHandler do
     described_class.new(user:, id_document: dni, birthdate: date)
                    .with_context(current_organization: organization)
   end
+  let!(:unique_id) do
+    Digest::SHA256.hexdigest("#{handler.census_for_user&.id_document}-#{organization.id}-#{Rails.application.secrets.secret_key_base}")
+  end
 
   let(:census_datum) do
     create(:census_datum, id_document: encoded_dni,
@@ -36,6 +39,10 @@ RSpec.describe FileAuthorizationHandler do
     census_datum
     expect(handler.valid?).to be true
     expect(handler.metadata).to eq(birthdate: "1990/11/21")
+  end
+
+  it "generates unique_id correctly" do
+    expect(unique_id).to eq(handler.unique_id)
   end
 
   it "works when no current_organization context is provided (but the user is)" do
