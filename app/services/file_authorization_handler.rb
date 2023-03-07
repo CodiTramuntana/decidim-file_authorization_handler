@@ -41,7 +41,7 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def unique_id
-    census_for_user&.id_document
+    Digest::SHA256.hexdigest("#{census_for_user&.id_document}-#{organization.id}-#{Rails.application.secrets.secret_key_base}")
   end
 
   def census_for_user
