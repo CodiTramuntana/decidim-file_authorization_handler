@@ -2,7 +2,7 @@
 
 ## v0.27.1.1
  - Add organization id to generate unique_id because there are conflicts when there is a multitenant.
- ❗ Be careful, this change this fix will make all verifications in production no longer valid because the `unique_id` will be generated differently ❗
+ ❗ Be careful, this change will make all verifications in production no longer valid because the `unique_id` will be generated differently ❗
 
 ## v0.27.1.0
  - Upgrade to use Ruby 3.1.3, but be compatible with > 3.0
