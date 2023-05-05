@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.27.2.0
+ - Upgrade to Decidim v0.27.2
+
 ## v0.27.1.1
  - Add organization id to generate unique_id because there are conflicts when there is a multitenant.
  ❗ Be careful, this change will make all verifications in production no longer valid because the `unique_id` will be generated differently ❗
