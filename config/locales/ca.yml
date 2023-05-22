@@ -43,3 +43,8 @@ ca:
           title: Pujar un nou cens
           file: Arxiu excel .csv amb les dades del cens
           submit: Carrega
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            file_authorization_handler: Verifica't amb el cens de l'organització

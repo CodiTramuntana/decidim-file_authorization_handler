@@ -43,3 +43,8 @@ es:
           title: Subir un nuevo censo
           file: Archivo excel .csv con los datos del censo
           submit: Subir archivo
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            file_authorization_handler: Verifícate con el censo de la organización
