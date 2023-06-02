@@ -5,7 +5,7 @@ FactoryBot.define do
     id_document { "123456789A" }
     birthdate { 20.years.ago }
     organization
-    extras { {} }
+    extras { nil }
 
     trait :with_extras do
       extras { { district: "123456789", postal_code: "ABCDEFGHIJK", segment_1: Random.hex } }

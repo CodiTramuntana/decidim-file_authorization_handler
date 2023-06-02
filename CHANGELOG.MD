@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.27.1.3
+ - FIX: ignore CensusDatum#extras if not set.
+
 ## v0.27.1.2
  - Add missing translations about first login.
 

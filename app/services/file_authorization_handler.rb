@@ -16,7 +16,7 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
   def metadata
     @metadata ||= begin
       meta = { birthdate: census_for_user&.birthdate&.strftime("%Y/%m/%d") }
-      census_for_user.extras.each_pair do |key, value|
+      census_for_user&.extras&.each_pair do |key, value|
         meta[key.to_sym] = value
       end
       meta
