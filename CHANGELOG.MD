@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.27.1.4
+ - FIX: add compatibilty cross older Ruby versions by adding the hash value in the parameter.
+
 ## v0.27.1.3
  - FIX: ignore CensusDatum#extras if not set.
 
