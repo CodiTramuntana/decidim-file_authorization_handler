@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.27.1.5
+ - FIX: When organization is nil, unique_id causes an exception.
+
 ## v0.27.1.4
  - FIX: add compatibilty cross older Ruby versions by adding the hash value in the parameter.
 
