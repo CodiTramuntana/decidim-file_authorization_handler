@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.25.2.3
+- Backport fixes with unique_id
+
 ## v0.25.2.2
 - Make test succeed
 - Update Gemfile.lock with current module version
