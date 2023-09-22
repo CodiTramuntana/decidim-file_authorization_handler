@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.26.8.8
+ - Backport fixes with unique_id.
+
 ## v0.26.2.7
  - FIX: ignore CensusDatum#extras if not set.
 
