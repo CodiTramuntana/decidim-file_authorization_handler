@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.25.2.4
+- Backport fix frozen string literal error with handler name.
+
 ## v0.25.2.3
 - Backport fixes with unique_id
 
