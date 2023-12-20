@@ -5,6 +5,9 @@
 class FileAuthorizationHandler < Decidim::AuthorizationHandler
   # This is the input (from the user) to validate against
   attribute :id_document, String
+  # This is a hack in order to sign initiatives because in decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb
+  # send to handler_for a param named document_number.
+  attribute :document_number, String
   attribute :birthdate, Decidim::Attributes::LocalizedDate
 
   # This is the validation to perform
@@ -50,7 +53,7 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
     return unless organization
 
     @census_for_user ||= Decidim::FileAuthorizationHandler::CensusDatum
-                         .search_id_document(organization, id_document)
+                         .search_id_document(organization, id_document || document_number)
   end
 
   def organization
