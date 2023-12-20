@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.27.1.6
+ - FIX: Add a hack in `file_authorization_handler` order to sign initiatives because in decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb send to handler_for a param named document_number.
+
 ## v0.27.1.5
  - FIX: When organization is nil, unique_id causes an exception.
 
