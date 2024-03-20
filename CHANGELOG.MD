@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.27.1.7
+ - FIX: Fix previous version. Accept :document_number as decidim-initiatives sends it, but don't declare it as a argument as it duplicates the verification input for the document.
+
 ## v0.27.1.6
  - FIX: Add a hack in `file_authorization_handler` order to sign initiatives because in decidim-initiatives/app/forms/decidim/initiatives/vote_form.rb send to handler_for a param named document_number.
 
