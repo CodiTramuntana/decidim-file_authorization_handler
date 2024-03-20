@@ -15,6 +15,14 @@ RSpec.describe FileAuthorizationHandler do
     Digest::SHA256.hexdigest("#{handler.census_for_user&.id_document}-#{organization.id}-#{Rails.application.secrets.secret_key_base}")
   end
 
+  it "accepts either id_document or document_number in the constructor" do
+    expect(handler.id_document).to eq(dni)
+
+    handler = described_class.new(user:, document_number: dni, birthdate: date)
+                             .with_context(current_organization: organization)
+    expect(handler.id_document).to eq(dni)
+  end
+
   context "without extras in CensusDatum" do
     let(:census_datum) do
       create(:census_datum, id_document: encoded_dni,
