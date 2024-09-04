@@ -19,6 +19,8 @@ ca:
         fields:
           birthdate: Data de naixement
     file_authorization_handler:
+      upload_info:
+        format: "Ha de ser un fitxer generat en excel i exportat en CSV amb dues columnes:"
       errors:
         messages:
           not_censed: No hem pogut trobar el teu document d'identitat amb aquesta data de naixement al padró municipal. Si les dades són correctes i el problema persisteix, siusplau, posa't en contacte amb un administrador.
@@ -39,7 +41,6 @@ ca:
           data: Hi ha un total de %{count} registres carregats. La última càrrega va ser el dia %{due_date}
           empty: Encara no hi ha dades censals carregades. Utilitza el següent formulari per importar-lo utilitzant un fitxer CSV.
         new:
-          info: "Ha de ser un fitxer generat en excel i exportat en CSV amb dues columnes: document d'identitat i data de naixement"
           title: Pujar un nou cens
           file: Arxiu excel .csv amb les dades del cens
           submit: Carrega
