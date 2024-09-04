@@ -35,7 +35,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum do
       it "returns without crashing" do
         # rubocop: disable Rails/SkipsModelValidations
         inserts = CensusDatum.insert_all(organization, [])
-        expect(inserts.size).to be 0
+        expect(inserts).to be_nil
         # rubocop: enable Rails/SkipsModelValidations
       end
     end
