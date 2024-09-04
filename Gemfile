@@ -15,10 +15,11 @@ gemspec
 group :development, :test do
   gem "bootsnap", require: false
   gem "decidim", "~> 0.28.0", require: true
+  gem "faker"
   gem "letter_opener_web"
   gem "listen"
-end
-
-group :development do
-  gem "rubocop"
+  # Set versions because Property AutoCorrect errors.
+  gem "rspec-rails", "~> 6.0.4"
+  gem "rubocop-factory_bot", "2.25.1"
+  gem "rubocop-rspec", "2.26.1"
 end

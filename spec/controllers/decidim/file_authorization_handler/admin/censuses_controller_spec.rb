@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, type: :controller do
+RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController do
   include Warden::Test::Helpers
 
   routes { Decidim::FileAuthorizationHandler::AdminEngine.routes }
 
   let(:organization) do
-    create :organization,
-           available_authorizations: ["file_authorization_handler"]
+    create(:organization,
+           available_authorizations: ["file_authorization_handler"])
   end
 
   let(:user) do
-    create :user, :admin, :confirmed, organization:, admin: true
+    create(:user, :admin, :confirmed, organization:, admin: true)
   end
 
   before do
@@ -47,7 +47,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController, typ
     it "clear all census data" do
       sign_in user
 
-      create_list :census_datum, 5, organization: organization
+      create_list(:census_datum, 5, organization:)
       delete :destroy
       expect(response).to have_http_status(:redirect)
 
