@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.28.2.0
+ - Upgrade to Decidim 0.28
+
 ## v0.27.1.7
  - FIX: Fix previous version. Accept :document_number as decidim-initiatives sends it, but don't declare it as a argument as it duplicates the verification input for the document.
 

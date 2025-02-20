@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-RSpec.describe Decidim::FileAuthorizationHandler::Status, type: :model do
-  let(:organization) { create :organization }
+RSpec.describe Decidim::FileAuthorizationHandler::Status do
+  let(:organization) { create(:organization) }
 
   it "returns last import date" do
-    last = create :census_datum, organization: organization
+    last = create(:census_datum, organization:)
     status = Decidim::FileAuthorizationHandler::Status.new(organization)
     expect(last.created_at.to_i).to eq status.last_import_at.to_i
   end

@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::FileAuthorizationHandler::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:dummy_component) { create :dummy_component }
+  let(:dummy_component) { create(:dummy_component) }
   let(:organization) { dummy_component.organization }
-  let(:user) { create :user, organization: }
+  let(:user) { create(:user, organization:) }
   let(:context) do
     {
       current_component: dummy_component,
@@ -28,7 +28,7 @@ describe Decidim::FileAuthorizationHandler::Admin::Permissions do
     [:show, :create, :destroy].each do |action_name|
       let(:action_name) { action_name }
 
-      context "##{action_name}" do
+      describe "##{action_name}" do
         it { is_expected.to be true }
       end
     end

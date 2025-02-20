@@ -7,7 +7,6 @@ require "decidim/admin"
 require "decidim/core"
 require "decidim/verifications"
 require "decidim/core/test"
-require "social-share-button"
 require "letter_opener_web"
 
 require "helpers/decidim/file_authorization_handler/encoding_helper"

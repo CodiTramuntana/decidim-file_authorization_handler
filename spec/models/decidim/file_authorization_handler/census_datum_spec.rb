@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum, type: :model do
-  let(:organization) { create :organization }
+RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum do
+  let(:organization) { create(:organization) }
 
   # rubocop: disable Lint/ConstantDefinitionInBlock
   CensusDatum = Decidim::FileAuthorizationHandler::CensusDatum
@@ -34,7 +34,8 @@ RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum, type: :model do
     context "when values is empty" do
       it "returns without crashing" do
         # rubocop: disable Rails/SkipsModelValidations
-        CensusDatum.insert_all(organization, [])
+        inserts = CensusDatum.insert_all(organization, [])
+        expect(inserts).to be_nil
         # rubocop: enable Rails/SkipsModelValidations
       end
     end
