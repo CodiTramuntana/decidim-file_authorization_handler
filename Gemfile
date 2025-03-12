@@ -14,7 +14,8 @@ gemspec
 
 group :development, :test do
   gem "bootsnap", require: false
-  gem "decidim", "0.29.0", require: true
+  gem "decidim", "0.29.2", require: true
+  gem "decidim-dev", "0.29.2", require: true
   gem "faker", "~> 3.2"
   gem "letter_opener_web"
   gem "listen"

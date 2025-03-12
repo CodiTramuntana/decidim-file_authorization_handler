@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  s.required_ruby_version = "3.2.6"
+  s.required_ruby_version = ">= 3.2"
 
   # rubocop: disable Lint/ConstantDefinitionInBlock
   DECIDIM_VERSION = "~> #{Decidim::FileAuthorizationHandler::DECIDIM_VERSION}".freeze
