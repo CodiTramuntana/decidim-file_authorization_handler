@@ -106,6 +106,8 @@ mount Decidim::FileAuthorizationHandler::AdminEngine => '/admin'
 Run:
 ```bash
 bin/rails decidim:generate_external_test_app
+bin/rails decidim_file_authorization_handler:install:migrations
+bin/rails db:migrate
 ```
 
 ## Run tests
