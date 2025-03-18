@@ -4,7 +4,6 @@ require "spec_helper"
 RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum do
   let(:organization) { create(:organization) }
 
-  # rubocop: disable Lint/ConstantDefinitionInBlock
   CensusDatum = Decidim::FileAuthorizationHandler::CensusDatum
   # rubocop: enable Lint/ConstantDefinitionInBlock
 
@@ -45,7 +44,7 @@ RSpec.describe Decidim::FileAuthorizationHandler::CensusDatum do
         # rubocop: disable Rails/SkipsModelValidations
         CensusDatum.insert_all(organization, [
                                  ["1111A", "2001/12/1", "001", "1234"],
-                                 ["3333C", "1990/12/3", "ABCD", "01-12/33"],
+                                 ["3333C", "1990/12/3", "ABCD", "01-12/33"]
                                ], %w(POSTAL_CODE DISTRICT))
         # rubocop: enable Rails/SkipsModelValidations
 

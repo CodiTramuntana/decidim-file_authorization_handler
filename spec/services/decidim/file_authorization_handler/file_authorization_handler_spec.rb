@@ -78,7 +78,7 @@ RSpec.describe FileAuthorizationHandler do
                                        birthdate: "2000/01/01",
                                        district: census_datum.extras["district"],
                                        postal_code: census_datum.extras["postal_code"],
-                                       segment_1: census_datum.extras["segment_1"],
+                                       segment1: census_datum.extras["segment1"]
                                      })
     end
   end

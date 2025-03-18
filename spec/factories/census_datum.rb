@@ -8,7 +8,7 @@ FactoryBot.define do
     extras { nil }
 
     trait :with_extras do
-      extras { { district: "123456789", postal_code: "ABCDEFGHIJK", segment_1: Random.hex } }
+      extras { { district: "123456789", postal_code: "ABCDEFGHIJK", segment1: Random.hex } }
     end
   end
 end
