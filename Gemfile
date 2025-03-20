@@ -14,11 +14,11 @@ gemspec
 
 group :development, :test do
   gem "bootsnap", require: false
+  gem "byebug", "~> 11.0", platform: :mri
   gem "decidim", "0.29.2", require: true
   gem "decidim-dev", "0.29.2", require: true
   gem "faker", "~> 3.2"
   gem "letter_opener_web"
   gem "listen"
-  # Set versions because Property AutoCorrect errors.
-  gem "rubocop-rspec", "~> 3.0"
+  gem "rubocop-faker", "~> 1.1"
 end
