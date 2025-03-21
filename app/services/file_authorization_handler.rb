@@ -43,7 +43,7 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def authorized?
-    return true if census_for_user
+    true if census_for_user
   end
 
   def unique_id

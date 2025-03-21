@@ -102,6 +102,14 @@ Finally, add the following line to your `config/routes.rb` file:
 mount Decidim::FileAuthorizationHandler::AdminEngine => '/admin'
 ```
 
+## Create development_app
+Run:
+```bash
+bin/rails decidim:generate_external_development_app
+bin/rails decidim_file_authorization_handler:install:migrations
+bin/rails db:migrate
+```
+
 ## Run tests
 
 Node 16.9.1 is required!
