@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.29.2
+ - Upgrade to Decidim 0.29.2
+ - Set Ruby version to 3.2.6
+
 ## v0.28.2.0
  - Upgrade to Decidim 0.28
 
