@@ -66,6 +66,12 @@ jobs:
           bundle exec rails decidim_file_authorization_handler:install:migrations
           RAILS_ENV=test bundle exec rails db:migrate
 
+      - name: Enable pgcrypto extension
+        run: |
+          psql -h $DATABASE_HOST -U $DATABASE_USERNAME -d decidim_file_authorization_handler_test_app_test -c "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
+        env:
+          PGPASSWORD: ${{ env.DATABASE_PASSWORD }}
+
       - name: Run RSpec
         uses: nick-invision/retry@v2
         with:
