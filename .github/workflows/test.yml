@@ -72,4 +72,4 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: bundle exec rake --backtrace -t
+          command: DISABLE_SPRING=1 bundle exec rake --backtrace -t
