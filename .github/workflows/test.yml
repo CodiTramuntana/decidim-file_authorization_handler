@@ -9,14 +9,14 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.2.6
+  RUBY_VERSION: 3.3.4
 jobs:
   test-module:
     runs-on: ubuntu-latest
 
     services:
       postgres:
-        image: postgres:11
+        image: postgres:16
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -26,6 +26,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     env:
+      DISABLE_SPRING: 1
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
@@ -72,4 +73,4 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
-          command: bundle exec rake --backtrace -t
+          command: DISABLE_SPRING=1 bundle exec rake --backtrace -t

@@ -2,7 +2,7 @@
 
 module Decidim
   module FileAuthorizationHandler
-    DECIDIM_VERSION = "0.29.2"
+    DECIDIM_VERSION = "0.30.1"
 
     # Uses the latest matching Decidim version for
     # - major, minor and patch
