@@ -1,6 +1,7 @@
 tmp/
 spec/decidim_dummy_app/
 .rspec-failures
+.rubocop-https*
 .byebug_history
 
 # default development application
