@@ -5,8 +5,17 @@ module Decidim
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::FileAuthorizationHandler::Admin
 
+      paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
+
       routes do
         resource :censuses, only: [:show, :create, :destroy]
+      end
+
+      initializer "decidim_file_authorization_handler.admin_mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::FileAuthorizationHandler::AdminEngine, at: "/admin/file_authorization_handler", as: "decidim_file_authorization_handler_admin"
+        end
       end
 
       initializer "decidim_file_authorization.add_admin_menu" do
