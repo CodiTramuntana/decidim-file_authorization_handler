@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.30.1.1
+- Remove inflectors about census because there are conflicts with Decidim core authorizations
+
 ## v0.30.1
 - Upgrade to Decidim 0.30.1
 - Set Ruby version to 3.3.4
