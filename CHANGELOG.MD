@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.28.2.1
+  - Remove inflectors about census because there are conflicts with Decidim core authorizations
+
 ## v0.28.2.0
  - Upgrade to Decidim 0.28
 
