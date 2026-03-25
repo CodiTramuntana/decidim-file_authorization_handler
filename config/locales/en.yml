@@ -32,6 +32,7 @@ en:
         censuses:
           create:
             success: Successfully imported %{count} items (%{errors} errors)
+            invalid_format: "Invalid file format. Only CSV files are accepted."
           destroy:
             success: All census data have been deleted
         menu:

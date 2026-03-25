@@ -12,6 +12,10 @@ module Decidim
         def create
           enforce_permission_to :create, :authorization
           if params[:file]
+            unless csv_file?(params[:file])
+              flash[:alert] = t(".invalid_format")
+              return redirect_to censuses_path
+            end
             data = CsvData.new(params[:file].path)
             # rubocop: disable Rails/SkipsModelValidations
             CensusDatum.insert_all(current_organization, data.values, data.headers[2..])
@@ -27,6 +31,12 @@ module Decidim
           enforce_permission_to :destroy, :authorization, organization: current_organization
           CensusDatum.clear(current_organization)
           redirect_to censuses_path, notice: t(".success")
+        end
+
+        private
+
+        def csv_file?(file)
+          File.extname(file.original_filename).casecmp(".csv").zero? && file.content_type == "text/csv"
         end
       end
     end
