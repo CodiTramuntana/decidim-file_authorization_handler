@@ -6,12 +6,6 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::FileAuthorizationHandler
 
-      initializer "decidim_census.add_irregular_inflection" do |_app|
-        ActiveSupport::Inflector.inflections(:en) do |inflect|
-          inflect.irregular "census", "census"
-        end
-      end
-
       initializer "decidim_census.add_authorization_handlers" do |_app|
         Decidim::Verifications.register_workflow(:file_authorization_handler) do |workflow|
           workflow.form = "FileAuthorizationHandler"
