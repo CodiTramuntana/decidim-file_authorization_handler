@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.30.1.2
+- Add csv validation to upload form
+
 ## v0.30.1.1
 - Remove inflectors about census because there are conflicts with Decidim core authorizations
 

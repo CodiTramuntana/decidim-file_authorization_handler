@@ -33,13 +33,43 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController do
       sign_in user
 
       # Don't know why don't prepend with `spec/fixtures` automatically
-      file = fixture_file_upload("spec/fixtures/files/data1.csv")
+      file = fixture_file_upload("spec/fixtures/files/data1.csv", "text/csv")
       post :create, params: { file: }
       expect(response).to have_http_status(:redirect)
-
       expect(Decidim::FileAuthorizationHandler::CensusDatum.count).to be 3
+
       expect(Decidim::FileAuthorizationHandler::CensusDatum.first.id_document).to eq encode_id_document("1111A")
       expect(Decidim::FileAuthorizationHandler::CensusDatum.last.id_document).to eq encode_id_document("3333C")
+    end
+
+    it "rejects non-csv files" do
+      sign_in user
+
+      file = fixture_file_upload("spec/fixtures/files/invalid.txt", "text/plain")
+      post :create, params: { file: }
+      expect(response).to have_http_status(:redirect)
+      expect(flash[:alert]).to include("CSV")
+      expect(Decidim::FileAuthorizationHandler::CensusDatum.count).to be 0
+    end
+
+    it "rejects files with csv extension but wrong content type" do
+      sign_in user
+
+      file = fixture_file_upload("spec/fixtures/files/data1.csv", "application/octet-stream")
+      post :create, params: { file: }
+      expect(response).to have_http_status(:redirect)
+      expect(flash[:alert]).to include("CSV")
+      expect(Decidim::FileAuthorizationHandler::CensusDatum.count).to be 0
+    end
+
+    it "rejects files with csv content type but wrong extension" do
+      sign_in user
+
+      file = fixture_file_upload("spec/fixtures/files/invalid.txt", "text/csv")
+      post :create, params: { file: }
+      expect(response).to have_http_status(:redirect)
+      expect(flash[:alert]).to include("CSV")
+      expect(Decidim::FileAuthorizationHandler::CensusDatum.count).to be 0
     end
   end
 
