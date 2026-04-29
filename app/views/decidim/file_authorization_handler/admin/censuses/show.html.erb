@@ -36,7 +36,7 @@
 
       <%= form_tag censuses_path, multipart: true, class: 'form' do %>
         <%= label_tag :name, t('admin.new.file', scope: 'decidim.file_authorization_handler') %>
-        <%= file_field_tag :file %>
+        <%= file_field_tag :file, accept: ".csv" %>
         <%= submit_tag t('admin.new.submit', scope: 'decidim.file_authorization_handler'), class: 'button button__sm button__secondary hollow tiny button--title' %>
       <% end %>
     </div>
