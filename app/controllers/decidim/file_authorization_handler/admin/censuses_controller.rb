@@ -9,6 +9,11 @@ module Decidim
           @status = Status.new(current_organization)
         end
 
+        def new
+          enforce_permission_to :create, :authorization
+          @status = Status.new(current_organization)
+        end
+
         def create
           enforce_permission_to :create, :authorization
           if params[:file]

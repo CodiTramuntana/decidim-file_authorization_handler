@@ -2,6 +2,7 @@
 
 ## v0.31.5.0
 - Upgrade to Decidim 0.31.5
+- Redesign views
 
 ## v0.30.1.2
 - Add csv validation to upload form
