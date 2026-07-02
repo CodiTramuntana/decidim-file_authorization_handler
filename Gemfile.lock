@@ -305,6 +305,11 @@ GEM
       decidim-core (= 0.31.5)
     decidim-generators (0.31.5)
       decidim-core (= 0.31.5)
+    decidim-initiatives (0.31.5)
+      decidim-admin (= 0.31.5)
+      decidim-comments (= 0.31.5)
+      decidim-core (= 0.31.5)
+      decidim-verifications (= 0.31.5)
     decidim-meetings (0.31.5)
       decidim-core (= 0.31.5)
       decidim-forms (= 0.31.5)
@@ -946,6 +951,7 @@ DEPENDENCIES
   decidim (= 0.31.5)
   decidim-dev (= 0.31.5)
   decidim-file_authorization_handler!
+  decidim-initiatives (= 0.31.5)
   faker (~> 3.2)
   letter_opener_web
   listen
