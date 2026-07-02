@@ -15,8 +15,8 @@ gemspec
 group :development, :test do
   gem "bootsnap", require: false
   gem "byebug", "~> 11.0", platform: :mri
-  gem "decidim", "0.30.1", require: true
-  gem "decidim-dev", "0.30.1", require: true
+  gem "decidim", "0.31.5", require: true
+  gem "decidim-dev", "0.31.5", require: true
   gem "faker", "~> 3.2"
   gem "letter_opener_web"
   gem "listen"
