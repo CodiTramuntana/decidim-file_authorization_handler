@@ -15,10 +15,10 @@ gemspec
 group :development, :test do
   gem "bootsnap", require: false
   gem "byebug", "~> 11.0", platform: :mri
-  gem "decidim", "0.31.5", require: true
-  gem "decidim-dev", "0.31.5", require: true
+  gem "decidim", "0.31.6", require: true
+  gem "decidim-dev", "0.31.6", require: true
   # required by CI tests
-  gem "decidim-initiatives", "0.31.5", require: "decidim/initiatives"
+  gem "decidim-initiatives", "0.31.6", require: "decidim/initiatives"
   gem "faker", "~> 3.2"
   gem "letter_opener_web"
   gem "listen"
