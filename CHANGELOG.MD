@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.31.6.0
+- Upgrade to Decidim 0.31.6
+- Redesign views
+
 ## v0.30.1.2
 - Add csv validation to upload form
 

@@ -19,7 +19,7 @@ es:
         fields:
           birthdate: Fecha de nacimiento
     file_authorization_handler:
-      upload_file:
+      upload_info:
         format: 'Debe ser un fichero generado por excel y exportado en formato CSV con dos columnas:'
       errors:
         messages:
@@ -39,8 +39,9 @@ es:
           census: Subir censo
         show:
           title: Datos de censo actuales
+          import_csv: Importar CSV
           data: Hay un total de %{count} registros cargados. La última carga fue el día %{due_date}
-          empty: No hay datos censales. Usa el formulario a continuación para importar usando un fichero CSV.
+          empty: No hay datos censales. Usa el botón "Importar CSV" de arriba para importar un fichero CSV.
         new:
           title: Subir un nuevo censo
           file: Archivo excel .csv con los datos del censo

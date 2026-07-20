@@ -9,6 +9,7 @@ module Decidim
       initializer "decidim_census.add_authorization_handlers" do |_app|
         Decidim::Verifications.register_workflow(:file_authorization_handler) do |workflow|
           workflow.form = "FileAuthorizationHandler"
+          workflow.admin_engine = Decidim::FileAuthorizationHandler::AdminEngine
         end
       end
     end

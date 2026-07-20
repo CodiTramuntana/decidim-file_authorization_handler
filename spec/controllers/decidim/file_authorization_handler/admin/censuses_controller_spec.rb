@@ -28,6 +28,15 @@ RSpec.describe Decidim::FileAuthorizationHandler::Admin::CensusesController do
     end
   end
 
+  describe "GET #new" do
+    it "returns http success" do
+      sign_in user, scope: :user
+      get :new
+
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "POST #create" do
     it "imports the csv data" do
       sign_in user
