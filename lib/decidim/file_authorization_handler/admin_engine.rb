@@ -9,7 +9,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resource :censuses, only: [:show, :create, :destroy]
+        resource :censuses, only: [:show, :new, :create, :destroy]
       end
 
       initializer "decidim_file_authorization_handler.admin_mount_routes" do
