@@ -35,7 +35,7 @@ ca:
         new:
           file: Arxiu excel .csv amb les dades del cens
           submit: Carrega
-          title: Pujar un nou cens
+          title: Puja un nou cens
         show:
           data: Hi ha un total de %{count} registres carregats. La última càrrega
             va ser el dia %{due_date}
