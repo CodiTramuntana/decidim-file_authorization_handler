@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## v0.31.6.1
+- Fix issue with admin_engine workflow
+
+## v0.31.6.0
+- Upgrade to Decidim 0.31.6
+- Redesign views
+
+## v0.30.1.2
+- Add csv validation to upload form
+
+## v0.30.1.1
+- Remove inflectors about census because there are conflicts with Decidim core authorizations
+
+## v0.30.1
+- Upgrade to Decidim 0.30.1
+- Set Ruby version to 3.3.4
+
 ## v0.29.2
  - Upgrade to Decidim 0.29.2
  - Set Ruby version to 3.2.6

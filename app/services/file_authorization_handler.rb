@@ -16,7 +16,7 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
   # Customized constructor to support decidim-initiatives.
   def initialize(params)
     params[:id_document] = params.delete(:document_number) unless params.has_key?(:id_document)
-    super(params)
+    super
   end
 
   def metadata
@@ -49,7 +49,7 @@ class FileAuthorizationHandler < Decidim::AuthorizationHandler
   def unique_id
     return nil unless organization
 
-    Digest::SHA256.hexdigest("#{census_for_user&.id_document}-#{organization.id}-#{Rails.application.secrets.secret_key_base}")
+    Digest::SHA256.hexdigest("#{census_for_user&.id_document}-#{organization.id}-#{ENV.fetch("SECRET_KEY_BASE", nil)}")
   end
 
   def census_for_user
