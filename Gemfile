@@ -22,7 +22,5 @@ group :development, :test do
   gem "faker", "~> 3.2"
   gem "letter_opener_web"
   gem "listen"
-  gem "rack-mini-profiler", require: false
   gem "rubocop-faker", "~> 1.1"
-  gem "sidekiq"
 end
