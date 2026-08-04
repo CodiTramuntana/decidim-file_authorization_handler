@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.31.6.1
+- Fix issue with admin_engine workflow
+
 ## v0.31.6.0
 - Upgrade to Decidim 0.31.6
 - Redesign views
