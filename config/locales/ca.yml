@@ -28,8 +28,8 @@ ca:
           destroy:
             success: S'han esborrat totes les dades censals
         destroy:
-          confirm: Aquesta acció no es pot desfer. Estàs segur/a que voleu continuar?
-          title: Esborrar totes les dades del cens
+          confirm: Aquesta acció no es pot desfer. Estàs segur/a que vols continuar?
+          title: Esborra totes les dades del cens
         menu:
           census: Pujar cens
         new:
