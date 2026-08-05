@@ -12,12 +12,6 @@ module Decidim
         resource :censuses, only: [:show, :new, :create, :destroy]
       end
 
-      initializer "decidim_file_authorization_handler.admin_mount_routes" do
-        Decidim::Core::Engine.routes do
-          mount Decidim::FileAuthorizationHandler::AdminEngine, at: "/admin/file_authorization_handler", as: "decidim_file_authorization_handler_admin"
-        end
-      end
-
       initializer "decidim_file_authorization.add_admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :file_authorization_handler,
