@@ -23,6 +23,7 @@ eu:
       admin:
         censuses:
           create:
+            invalid_format: Fitxategiaren formatua ez da baliagarria. CSV fitxategiak bakarrik onartzen dira.
             success: "%{count} elementu arrakastaz inportatu dira (%{errors} errore)"
           destroy:
             success: Erroldako datu guztiak ezabatu dira
@@ -36,23 +37,18 @@ eu:
           submit: Fitxategia igo
           title: Errolda berria igo
         show:
-          data: Guztira %{count} erregistro kargatuta daude. Azken karga %{due_date}
-            egunean izan zen.
-          empty: Ez dago errolda-daturik. Erabili beheko inprimakia CSV fitxategi
-            bat erabiliz inportatzeko.
+          data: Guztira %{count} erregistro kargatuta daude. Azken karga %{due_date} egunean izan zen.
+          empty: Ez dago errolda-daturik. Erabili beheko inprimakia CSV fitxategi bat erabiliz inportatzeko.
+          import_csv: Inportatu CSV
           title: Uneko errolda-datuak
       errors:
         messages:
-          not_censed: Ezin izan dugu zure nortasun-agiria eta jaioteguna udal erroldan
-            aurkitu. Zure datuak zuzenak badira eta arazoak jarraitzen badu, jar zaitez
-            administratzailearekin harremanetan.
+          not_censed: Ezin izan dugu zure nortasun-agiria eta jaioteguna udal erroldan aurkitu. Zure datuak zuzenak badira eta arazoak jarraitzen badu, jar zaitez administratzailearekin harremanetan.
           younger_than_minimum_age: "%{age} urte baino gehiago izan beharko zenuke"
-      upload_file:
-        format: 'Excel bidez sortutako eta CSV formatuan esportatutako fitxategia
-          izan behar du, bi zutaberekin:'
+      upload_info:
+        format: 'Excel bidez sortutako eta CSV formatuan esportatutako fitxategia izan behar du, bi zutaberekin:'
     verifications:
       authorizations:
         first_login:
           actions:
-            file_authorization_handler: Egiaztatu zure burua erakundearen erroldaren
-              bidez
+            file_authorization_handler: Egiaztatu zure burua erakundearen erroldaren bidez

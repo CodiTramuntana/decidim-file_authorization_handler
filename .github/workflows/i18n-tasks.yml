@@ -1,0 +1,33 @@
+name: i18n-tasks
+
+on:
+  push:
+    branches:
+      - main
+      - release/*
+      - "*-stable"
+  pull_request:
+
+env:
+  RUBY_VERSION: 3.3.4
+
+jobs:
+  i18n-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: '3.3.4'
+          bundler-cache: true
+      - name: Set bundle local config configvendor/bundle path
+        run: bundle config set --local path 'vendor/bundle'
+      - name: Install Ruby deps
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: bundle install --jobs 4 --retry 3
+      - name: Run i18n-tasks health
+        run: bundle exec i18n-tasks health
