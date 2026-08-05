@@ -3,7 +3,7 @@ name: i18n-tasks
 on:
   push:
     branches:
-      - master
+      - main
       - release/*
       - "*-stable"
   pull_request:
