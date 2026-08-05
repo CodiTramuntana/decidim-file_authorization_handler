@@ -23,8 +23,8 @@ ca:
       admin:
         censuses:
           create:
+            invalid_format: Format de fitxer no vàlid. Només s'admeten fitxers CSV.
             success: S'han importat amb èxit %{count} elements (%{errors} errors)
-            invalid_format: "Format de fitxer no vàlid. Només s'admeten fitxers CSV."
           destroy:
             success: S'han esborrat totes les dades censals
         destroy:

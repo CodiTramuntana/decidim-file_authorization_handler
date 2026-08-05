@@ -23,8 +23,9 @@ es:
       admin:
         censuses:
           create:
+            invalid_format: Formato de archivo no válido. Solo se admiten ficheros
+              CSV.
             success: Se han importado con éxito %{count} elementos (%{errors} errores)
-            invalid_format: "Formato de archivo no válido. Solo se admiten ficheros CSV."
           destroy:
             success: Se han borrado todos los datos censales
         destroy:
