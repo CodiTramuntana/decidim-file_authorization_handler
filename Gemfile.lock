@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-file_authorization_handler (0.31.6.1)
+    decidim-file_authorization_handler (0.31.6.2)
       decidim (~> 0.31.6)
       decidim-admin (~> 0.31.6)
 
