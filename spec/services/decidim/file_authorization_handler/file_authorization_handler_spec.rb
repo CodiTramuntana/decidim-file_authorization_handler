@@ -12,7 +12,7 @@ RSpec.describe FileAuthorizationHandler do
                    .with_context(current_organization: organization)
   end
   let!(:unique_id) do
-    Digest::SHA256.hexdigest("#{handler.census_for_user&.id_document}-#{organization.id}-#{ENV.fetch("SECRET_KEY_BASE", nil)}")
+    Digest::SHA256.hexdigest("#{handler.census_for_user&.id_document}-#{organization.id}-#{Rails.application.secret_key_base}")
   end
 
   it "accepts either id_document or document_number in the constructor" do

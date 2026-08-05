@@ -1,0 +1,58 @@
+---
+eu:
+  activemodel:
+    attributes:
+      file_authorization_handler:
+        birthdate: Jaioteguna
+        id_document: Nortasun-agiria (NAN, IFZ, Pasaportea edo Egoitza Txartela)
+  census_authorization:
+    form:
+      date_select:
+        day: Eguna
+        month: Hilabetea
+        year: Urtea
+  decidim:
+    authorization_handlers:
+      file_authorization_handler:
+        explanation: Zure erabiltzaile-kontua Erakundearen Erroldaren bidez baimendu
+        fields:
+          birthdate: Jaioteguna
+        name: Erakundearen Errolda
+        type: CSV
+    file_authorization_handler:
+      admin:
+        censuses:
+          create:
+            success: "%{count} elementu arrakastaz inportatu dira (%{errors} errore)"
+          destroy:
+            success: Erroldako datu guztiak ezabatu dira
+        destroy:
+          confirm: Errolda ezabatzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
+          title: Erroldako datu guztiak ezabatu
+        menu:
+          census: Errolda igo
+        new:
+          file: Erroldaren datuak dituen excel .csv fitxategia
+          submit: Fitxategia igo
+          title: Errolda berria igo
+        show:
+          data: Guztira %{count} erregistro kargatuta daude. Azken karga %{due_date}
+            egunean izan zen.
+          empty: Ez dago errolda-daturik. Erabili beheko inprimakia CSV fitxategi
+            bat erabiliz inportatzeko.
+          title: Uneko errolda-datuak
+      errors:
+        messages:
+          not_censed: Ezin izan dugu zure nortasun-agiria eta jaioteguna udal erroldan
+            aurkitu. Zure datuak zuzenak badira eta arazoak jarraitzen badu, jar zaitez
+            administratzailearekin harremanetan.
+          younger_than_minimum_age: "%{age} urte baino gehiago izan beharko zenuke"
+      upload_file:
+        format: 'Excel bidez sortutako eta CSV formatuan esportatutako fitxategia
+          izan behar du, bi zutaberekin:'
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            file_authorization_handler: Egiaztatu zure burua erakundearen erroldaren
+              bidez

@@ -96,12 +96,6 @@ bin/rails decidim_file_authorization_handler:install:migrations
 bin/rails db:migrate
 ```
 
-Finally, add the following line to your `config/routes.rb` file:
-
-```ruby
-mount Decidim::FileAuthorizationHandler::AdminEngine => '/admin'
-```
-
 ## Create development_app
 Run:
 ```bash
@@ -111,8 +105,6 @@ bin/rails db:migrate
 ```
 
 ## Run tests
-
-Node 16.9.1 is required!
 
 Create a dummy app in your application (if not present):
 
@@ -138,7 +130,7 @@ undefined method 'decidim_file_authorization_handler_admin_path'
 for module#<Module:0x00007fa2aa4e2a10>
 ```
 
-review if you have mounted the Engine routes into your application routes.
+review if you have mounted the Engine routes into your application routes, cause is not longer necessary.
 
 ## License
 
