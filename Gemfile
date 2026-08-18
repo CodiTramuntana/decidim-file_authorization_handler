@@ -15,11 +15,9 @@ gemspec
 group :development, :test do
   gem "bootsnap", require: false
   gem "byebug", "~> 11.0", platform: :mri
-  gem "decidim", "0.31.6", require: true
-  gem "decidim-dev", "0.31.6", require: true
   # required by CI tests
-  gem "decidim-initiatives", "0.31.6", require: "decidim/initiatives"
   gem "faker", "~> 3.2"
+  gem "i18n-tasks", "~> 1.1.2"
   gem "letter_opener_web"
   gem "listen"
   gem "rubocop-faker", "~> 1.1"

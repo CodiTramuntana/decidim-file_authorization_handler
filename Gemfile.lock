@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-file_authorization_handler (0.31.6.2)
+    decidim-file_authorization_handler (0.31.6.3)
       decidim (~> 0.31.6)
       decidim-admin (~> 0.31.6)
 
@@ -310,11 +310,6 @@ GEM
       decidim-core (= 0.31.6)
     decidim-generators (0.31.6)
       decidim-core (= 0.31.6)
-    decidim-initiatives (0.31.6)
-      decidim-admin (= 0.31.6)
-      decidim-comments (= 0.31.6)
-      decidim-core (= 0.31.6)
-      decidim-verifications (= 0.31.6)
     decidim-meetings (0.31.6)
       decidim-core (= 0.31.6)
       decidim-forms (= 0.31.6)
@@ -974,11 +969,10 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   byebug (~> 11.0)
-  decidim (= 0.31.6)
-  decidim-dev (= 0.31.6)
+  decidim-dev (~> 0.31.6)
   decidim-file_authorization_handler!
-  decidim-initiatives (= 0.31.6)
   faker (~> 3.2)
+  i18n-tasks (~> 1.1.2)
   letter_opener_web
   listen
   rubocop-faker (~> 1.1)

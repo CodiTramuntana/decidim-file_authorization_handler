@@ -17,10 +17,20 @@ It has an admin controller to upload CSV files with the information. When
 importing files all records are inserted and the duplicates are removed in a
 background job for performance reasons.
 
-To keep the plugin simple the uploaded file is processed when the file is
-uploaded.
-Uploading the file to a temporary storage system and processing it in
-background is kept out of the scope for the first release.
+To keep the plugin simple the uploaded file is processed when the file is uploaded.
+Uploading the file to a temporary storage system and processing it in background is kept out of the scope for the first release.
+
+### Ephemeral authorization handler
+
+The optional ephemeral authorization workflow can be enabled by setting the
+`ENABLE_EPHEMERAL_FILE_AUTHORIZATION_HANDLER` environment variable to `true`:
+
+```bash
+ENABLE_EPHEMERAL_FILE_AUTHORIZATION_HANDLER=true
+```
+
+The regular `file_authorization_handler` workflow is always available.
+When `ENABLE_EPHEMERAL_FILE_AUTHORIZATION_HANDLER=true`, the `ephemeral_file_authorization_handler` workflow is also registered. Ephemeral authorizations expire after one hour and can be renewed every five minutes. The option is disabled by default.
 
 ### CSV file format
 
