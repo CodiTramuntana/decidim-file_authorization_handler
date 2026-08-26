@@ -9,10 +9,10 @@
 # and the permission check.
 class EphemeralFileAuthorizationHandler < FileAuthorizationHandler
   def form_attributes
-    attributes.except(*%w[id user tos_agreement]).keys
+    attributes.except(*%w(id user tos_agreement)).keys
   end
 
   def handler_name
-    +'ephemeral_file_authorization_handler'
+    +"ephemeral_file_authorization_handler"
   end
 end
