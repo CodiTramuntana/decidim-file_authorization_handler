@@ -22,6 +22,18 @@ uploaded.
 Uploading the file to a temporary storage system and processing it in
 background is kept out of the scope for the first release.
 
+### Ephemeral authorization handler
+
+The optional ephemeral authorization workflow can be enabled by setting the
+`ENABLE_EPHEMERAL_FILE_AUTHORIZATION_HANDLER` environment variable to `true`:
+
+```bash
+ENABLE_EPHEMERAL_FILE_AUTHORIZATION_HANDLER=true
+```
+
+The regular `file_authorization_handler` workflow is always available.
+When `ENABLE_EPHEMERAL_FILE_AUTHORIZATION_HANDLER=true`, the `ephemeral_file_authorization_handler` workflow is also registered. Ephemeral authorizations expire after one hour and can be renewed every five minutes. The option is disabled by default. 
+
 ### CSV file format
 
 The CSV file format is not configurable, but is extendable. The plugin expects a comma separated
