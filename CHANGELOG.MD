@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.30.1.3
+- Add a configurable Ephemeral_file_authorization_handler.
+
 ## v0.30.1.2
 - Add csv validation to upload form
 

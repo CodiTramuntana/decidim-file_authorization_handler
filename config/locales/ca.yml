@@ -12,6 +12,12 @@ ca:
         year: Any
   decidim:
     authorization_handlers:
+      ephemeral_file_authorization_handler:
+        explanation: Autoritza el teu compte d'usuari contra el cens de la Organització
+        fields:
+          birthdate: Data de naixement
+        name: Cens Organització
+        type: CSV
       file_authorization_handler:
         name: Cens Organització
         explanation: Autoritza el teu compte d'usuari contra el cens de la Organització
