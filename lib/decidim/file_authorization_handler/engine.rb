@@ -10,6 +10,17 @@ module Decidim
         Decidim::Verifications.register_workflow(:file_authorization_handler) do |workflow|
           workflow.form = "FileAuthorizationHandler"
         end
+
+        next unless ENV.fetch("ENABLE_EPHEMERAL_FILE_AUTHORIZATION_HANDLER", "false") == "true"
+
+        # Enable Ephemeral Verification
+        Decidim::Verifications.register_workflow(:ephemeral_file_authorization_handler) do |workflow|
+          workflow.ephemeral = true
+          workflow.form = "EphemeralFileAuthorizationHandler"
+          workflow.expires_in = 1.hour
+          workflow.renewable = true
+          workflow.time_between_renewals = 5.minutes
+        end
       end
     end
   end

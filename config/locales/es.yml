@@ -13,6 +13,12 @@ es:
         year: Año
   decidim:
     authorization_handlers:
+      ephemeral_file_authorization_handler:
+        explanation: Autoriza tu cuenta de usuario contra el Censo de la Organización
+        fields:
+          birthdate: Fecha de nacimiento
+        name: Censo de la Organización
+        type: CSV
       file_authorization_handler:
         explanation: Autoriza tu cuenta de usuario contra el Censo de la Organización
         fields:

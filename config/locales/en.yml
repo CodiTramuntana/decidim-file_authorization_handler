@@ -13,6 +13,12 @@ en:
         year: Year
   decidim:
     authorization_handlers:
+      ephemeral_file_authorization_handler:
+        explanation: Authorize your user account against Organization's Census
+        fields:
+          birthdate: Birthdate
+        name: Organization's Census
+        type: CSV
       file_authorization_handler:
         explanation: Authorize your user account against Organization's Census
         fields:
