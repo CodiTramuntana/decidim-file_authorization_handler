@@ -14,7 +14,11 @@ module Decidim
 
       initializer "decidim_file_authorization_handler.admin_mount_routes" do
         Decidim::Core::Engine.routes do
-          mount Decidim::FileAuthorizationHandler::AdminEngine, at: "/admin/file_authorization_handler", as: "decidim_file_authorization_handler_admin"
+          extend Decidim::Routes::LocaleRedirects
+
+          scope "/:locale", **locale_scope_options do
+            mount Decidim::FileAuthorizationHandler::AdminEngine, at: "/admin/file_authorization_handler", as: "decidim_file_authorization_handler_admin"
+          end
         end
       end
 

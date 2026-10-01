@@ -23,7 +23,7 @@ module Decidim
       def self.normalize_and_encode_id_document(id_document)
         return "" unless id_document
 
-        id_document = id_document.gsub(/[^A-z0-9]/, "").upcase
+        id_document = id_document.gsub(/[^A-Za-z0-9]/, "").upcase
         return "" if id_document.blank?
 
         Digest::SHA256.hexdigest(

@@ -15,3 +15,5 @@ npm_debug.log
 
 # Ignore node modules
 /node_modules
+/public/sw.js*
+/public/sw.js*

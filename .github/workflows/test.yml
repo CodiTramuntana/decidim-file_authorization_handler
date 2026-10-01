@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
 jobs:
   test-module:
     runs-on: ubuntu-latest
@@ -35,6 +35,8 @@ jobs:
         with:
           fetch-depth: 1
 
+      - run: |
+          sudo apt-get -y update; sudo apt-get -f install libvips libvips-tools
       - uses: ruby/setup-ruby@master
         with:
           ruby-version: ${{ env.RUBY_VERSION }}

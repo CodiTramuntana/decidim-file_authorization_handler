@@ -19,12 +19,16 @@ gem "decidim"
 group :development, :test do
   gem "bootsnap", require: false
   gem "byebug", "~> 11.0", platform: :mri
-  gem "decidim-dev", "~>0.31.6", require: true
+  gem "decidim", "0.32.0", require: true
+  gem "decidim-dev", "0.32.0", require: true
   # required by CI tests
-  gem "decidim-initiatives", "~> 0.31.6", require: "decidim/initiatives"
+  gem "decidim-initiatives", "0.32.0", require: "decidim/initiatives"
   gem "faker", "~> 3.2"
   gem "i18n-tasks", "~> 1.1.2"
   gem "letter_opener_web"
   gem "listen"
+  gem "rack-mini-profiler", require: false
   gem "rubocop-faker", "~> 1.1"
+  gem "selma", "0.5.2"
+  gem "sidekiq"
 end
